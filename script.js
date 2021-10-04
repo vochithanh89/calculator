@@ -17,6 +17,12 @@ for (var key of keys) {
         if (mainScreen.innerText === '0') {
             mainScreen.innerText = '';
         }
+        if (keyRemove.innerText === 'AC') {
+            subScreen.innerText = '';
+            mainScreen.innerText = '0';
+            numberString = '';
+            keyRemove.innerHTML = '<i class="ti-angle-left"></i>';
+        }
         if (!numberString.includes('.') || this.innerText !== '.') {
             numberString += this.innerText;
             mainScreen.innerText = numberString;
@@ -54,15 +60,15 @@ keyAdd.onclick = function() {
             mainScreen.innerText = eval(subScreen.innerText);
         }
         subScreen.innerText += this.innerText;
-        console.log(this.innerText);
         numberString = '';
     }
     else if (subScreen.innerText !== ''){
-      
-      if (keyRemove.innerText = 'AC') {
-          keyRemove.innerHTML = '<i class="ti-angle-left"></i>';
-      }  subScreen.innerText = subScreen.innerText.slice(0, -1) + this.innerText;  
+        subScreen.innerText = subScreen.innerText.slice(0, -1) + this.innerText;  
     }
+
+    if (keyRemove.innerText === 'AC') {
+        keyRemove.innerHTML = '<i class="ti-angle-left"></i>';
+    }  
 }
 
 keySubtract.onclick = function() {
@@ -80,6 +86,7 @@ keySubtract.onclick = function() {
     else if (subScreen.innerText !== ''){
         subScreen.innerText = subScreen.innerText.slice(0, -1) + this.innerText;  
     }
+
     if (keyRemove.innerText = 'AC') {
         keyRemove.innerHTML = '<i class="ti-angle-left"></i>';
     }
@@ -100,7 +107,8 @@ keyMultiply.onclick = function() {
     else if (subScreen.innerText !== ''){
         subScreen.innerText = subScreen.innerText.slice(0, -1) + this.innerText;  
     }
-    if (keyRemove.innerText = 'AC') {
+
+    if (keyRemove.innerText === 'AC') {
         keyRemove.innerHTML = '<i class="ti-angle-left"></i>';
     }
 }
@@ -121,14 +129,15 @@ keyDivide.onclick = function() {
     else if (subScreen.innerText !== ''){
         subScreen.innerText = subScreen.innerText.slice(0, -1) + this.innerText;  
     }
-    if (keyRemove.innerText = 'AC') {
+
+    if (keyRemove.innerText === 'AC') {
         keyRemove.innerHTML = '<i class="ti-angle-left"></i>';
     }
 }
 
 
 keyEqual.onclick = function() {
-    if (subScreen.innerText !== '') {
+    if (subScreen.innerText !== '' && numberString !== '') {
         subScreen.innerText += numberString;
         if (eval(subScreen.innerText) !== Math.round(eval(subScreen.innerText))) {
             mainScreen.innerText = eval(subScreen.innerText).toFixed(4);
