@@ -6,14 +6,14 @@
 
 html {
     font-size: 22px;
-    background-color: teal;
+    background-color: rgb(45, 86, 119);
     user-select: none;
     font-family: 'Oswald', sans-serif;
 }
 
 #container {
-    width: 250px;  
-    height: 400px; 
+    width: 280px;  
+    height: 440px; 
     background-image: url(https://1.bp.blogspot.com/-H36ImYC6C0k/YRo_rVrrCLI/AAAAAAABN-A/T2M8GuDotZU0kxhrc4pg4Ri1OmsZlW7FQCLcBGAsYHQ/w360-h640/Anime%2Bwaifus%2Blive%2Bwallpaper.gif);
     background-size: cover;
     margin: auto;
@@ -80,7 +80,6 @@ html {
     width: 25%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 175, 188);
     opacity: 0.9;
 }
 
@@ -88,4 +87,23 @@ html {
     height: 25%;
     text-align: center;
     line-height: 48px;
+    background-color: rgb(255, 175, 188);
+}
+
+@media screen and (max-width: 1024px){
+    #container .number-key:hover {
+        background-color: pink;
+        font-size: 22px;
+    }
+    #container .calc-key:hover {
+        background-color:rgb(255, 175, 188);
+        font-size: 22px;
+    }
+    #container .number-key:active,
+    #container .calc-key:active {
+        background-color: rgb(247, 121, 142);
+        font-size: 28px;
+        transition: all ease 0.1s;
+        cursor: pointer;
+    }
 }
